@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Improved NovaSchem</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/main.js">
+    </script>
+  </head>
+  <body>
+    <form class="main-form" action="javascript:void(0);" method="POST">
+      <select name="select">
+        <option value="58700">Nacka Gymnasium</option>
+        <option disabled="true">More comming soon...</option>
+     </select>
+     <input id="person_id" type="text" name="person_id" placeholder="SSN or class ID" value="" onkeydown="if (event.keyCode == 13) this.form.submit.click()"/>
+     <input id="button" type="button" name="submit" value="Submit" onClick="get_values(this.form)">
+    </form>
+    <div id="schedule-container"><img id="schedule" src="" alt="Please fill out the form"></div>
+  </body>
+</html>
