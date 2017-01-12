@@ -1,0 +1,9 @@
+#schedule {
+  width: 100%;
+
+}
+.mobile-container {
+  display: none;
+  position: absolute;
+  z-index: -1;
+}

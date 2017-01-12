@@ -1,0 +1,9 @@
+.mobile-container {
+  float: left;
+  width: 100%;
+  position: relative;
+  height: 85vh
+}
+#schedule {
+  display: none;
+}
