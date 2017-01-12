@@ -32,27 +32,55 @@ function render_schedule(url) {
   document.getElementById(schedule_img_id).src=url;
 }
 function render_mobile() {
-
-}
-
-function get_values(form) {
-  var schedule = document.getElementById(schedule_img_id)
-  var width = schedule.offsetWidth;
-  var height = 1080;
+  var column_1 = document.getElementById('col_1');
+  var school_id = document.getElementById('school_id').value;
+  var user_id = document.getElementById(ssn_id).value;
   var week = (new Date()).getWeek();
-  var school_id = form.select.value;
-  var person_id = form.person_id.value;
-  var day = 0;
-  var schedule_url = get_schedule(width, height, week, school_id, person_id, day);
+  var link_array = []
+  var width = window.width;
+  var height = window.height;
   console.log('Width: ' + width);
   console.log('Height: ' + height);
   console.log('Week: ' + week);
   console.log('School ID: ' + school_id);
-  console.log('Person ID: ' + person_id);
-  console.log('Schedule URL: ' + schedule_url);
-  render_schedule(schedule_url);
-}
+  console.log('Person ID: ' + user_id);
+  var day_array = ['1', '2', '4' ,'8', '16'];
+  day_array.forEach(function(day) {
+    console.log(day);
+    link_array.push(get_schedule(width, height, week, school_id, user_id, day))
+  });
+  i = 1;
+  console.log(link_array);
+  link_array.forEach(function(element) {
+    console.log(element);
+    console.log(i);
+    document.getElementById('col_' + i).src=element;
+    i++;
+  });
+  }
 
+function get_values(form) {
+  if(is_mobile){
+    render_mobile()
+  }
+  else{
+    var schedule = document.getElementById(schedule_img_id)
+    var width = schedule.offsetWidth;
+    var height = 1080;
+    var week = (new Date()).getWeek();
+    var school_id = form.select.value;
+    var person_id = form.person_id.value;
+    var day = 0;
+    var schedule_url = get_schedule(width, height, week, school_id, person_id, day);
+    console.log('Width: ' + width);
+    console.log('Height: ' + height);
+    console.log('Week: ' + week);
+    console.log('School ID: ' + school_id);
+    console.log('Person ID: ' + person_id);
+    console.log('Schedule URL: ' + schedule_url);
+    render_schedule(schedule_url);
+  }
+}
 window.onresize = resize;
 function resize() {
   var width = schedule.offsetWidth;
