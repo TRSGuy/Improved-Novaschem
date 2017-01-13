@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Improved NovaSchem</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="js/main.js">
-    </script>
-  </head>
-  <body>
-    <form class="main-form" action="javascript:void(0);" method="">
-      <select id="school_id" name="select">
-        <option value="58700">Nacka Gymnasium</option>
-        <option disabled="true">More comming soon...</option>
-     </select>
-     <input id="person_id" type="text" name="person_id" placeholder="SSN or class ID" value="" onkeydown="if (event.keyCode == 13) this.form.submit.click()"/>
-     <input id="button" type="button" name="submit" value="Submit" onClick="get_values(this.form)">
-     <input id="only_today" type="checkbox" name="current_day_only" value="current_day_only" checked> <label for="current_day_only">Only show current day</label>
-    </form>
-    <img src="img/no_schedule.png" id="schedule">
-    <div class="mobile-container">
-      <img src="img/no_schedule.png" id="col_1">
-      <img src="img/no_schedule.png" id="col_2">
-      <img src="img/no_schedule.png" id="col_3">
-      <img src="img/no_schedule.png" id="col_4">
-      <img src="img/no_schedule.png" id="col_5">
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <title>Improved NovaSchem</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" src="js/main.js">
+</script>
+    </head>
+    <body>
+        <form class="main-form" action="javascript:void(0);" method="">
+            <select id="school_id" name="select">
+                <option value="58700">Nacka Gymnasium</option>
+                <option disabled="true">More comming soon...</option>
+            </select>
+            <input id="person_id" type="text" name="person_id" placeholder="SSN or class ID" value="" onkeydown="if (event.keyCode == 13) this.form.submit.click()" />
+            <input id="button" type="button" name="submit" value="Submit" onClick="get_values(this.form)">
+            <input id="current_day_only" type="checkbox" name="current_day_only" value="current_day_only" checked>
+            <label for="current_day_only">Only show current day</label>
+        </form>
+        <img src="img/no_schedule.png" id="schedule">
+        <div class="mobile-container">
+            <img src="img/no_schedule.png" id="col_1">
+            <img src="img/no_schedule.png" id="col_2">
+            <img src="img/no_schedule.png" id="col_3">
+            <img src="img/no_schedule.png" id="col_4">
+            <img src="img/no_schedule.png" id="col_5">
+        </div>
+    </body>
 </html>

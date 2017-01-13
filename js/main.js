@@ -1,6 +1,8 @@
 var button_id = "button";
 var schedule_img_id = "schedule";
 var ssn_id = "person_id";
+var day_array = ['1', '2', '4', '8', '16'];
+
 Date.prototype.getWeek = function() {
     var onejan = new Date(this.getFullYear(), 0, 1);
     return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
@@ -40,14 +42,13 @@ function render_mobile() {
     var user_id = document.getElementById(ssn_id).value;
     var week = (new Date()).getWeek();
     var link_array = [];
-    var width = window.width;
-    var height = window.height;
+    var width = screen.width;
+    var height = screen.height;
     console.log('Width: ' + width);
     console.log('Height: ' + height);
     console.log('Week: ' + week);
     console.log('School ID: ' + school_id);
     console.log('Person ID: ' + user_id);
-    var day_array = ['1', '2', '4', '8', '16'];
     day_array.forEach(function(day) {
         console.log(day);
         link_array.push(get_schedule(width, height, week, school_id, user_id, day));
@@ -62,6 +63,8 @@ function render_mobile() {
     });
 }
 
+var only_today = document.getElementById("current_day_only").checked
+
 function get_values(form) {
     if (is_mobile) {
         render_mobile();
@@ -72,7 +75,13 @@ function get_values(form) {
         var week = (new Date()).getWeek();
         var school_id = form.select.value;
         var person_id = form.person_id.value;
-        var day = 0;
+        if(only_today){
+            var day = Date.getDay();
+            var day_number = day_array[day]
+        }
+        else(){
+            var day = 0;
+        }
         var schedule_url = get_schedule(width, height, week, school_id, person_id, day);
         console.log('Width: ' + width);
         console.log('Height: ' + height);
@@ -86,6 +95,6 @@ function get_values(form) {
 window.onresize = resize;
 
 function resize() {
-    var width = schedule.offsetWidth;
+    var width = screen.width;
     document.getElementById(button_id).click();
 }
