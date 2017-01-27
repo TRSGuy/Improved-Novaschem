@@ -1,100 +1,101 @@
-var button_id = "button";
-var schedule_img_id = "schedule";
-var ssn_id = "person_id";
-var day_array = ['1', '2', '4', '8', '16'];
-
-Date.prototype.getWeek = function() {
-    var onejan = new Date(this.getFullYear(), 0, 1);
-    return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
-};
-
-function mobile() {
-    document.head.insertAdjacentHTML('beforeend', '<link rel=stylesheet href="css/mobile-style.css">');
+var now = new Date();
+var day_array = [1, 2, 4, 8, 16]
+var page_loaded = false;
+window.onload = function () {
+    page_loaded = true;
+}
+function time() {
+    Date.prototype.getWeek = function() {
+        var onejan = new Date(this.getFullYear(), 0, 1);
+        return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+    };
+    var weekNumber = (new Date()).getWeek();
+    var day_number = now.getDay() - 1;
+    var array_day = day_array[day_number];
+    return [weekNumber, array_day];
 }
 
-window.mobilecheck = function() {
-    var check = false;
-    (function(a) {
-        if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))) check = true;
-    })(navigator.userAgent || navigator.vendor || window.opera);
-    return check;
-};
-
-var is_mobile = window.mobilecheck();
-if (is_mobile) {
-    mobile();
-} else {
-    void(0);
+function main() {
+    //This will be the main function that is going to be used for getting all the values and calling differnet functions. Will be trying to make as many small functions as possible so that I easily can reuse them
+    var today_only = get_value('checkbox', 'current_day_only');
+    var student_id = get_value('text', 'person_id');
+    var width = get_value('width', 'col_1');
+    var height = get_value('height', 'col_1');
+    var time_array = time();
+    var day = time_array[1];
+    var week = time_array[0];
+    var school_id = get_value('select', 'school_id');
+    document.cookie = "studentid=" + student_id +"; expires=Thu, 18 Dec 2018 12:00:00 UTC";
+    console.log('Student ID = ' + student_id);
+    console.log('Current Day Only = ' + today_only);
+    console.log('Width = ' + width);
+    console.log('Height = ' + height);
+    console.log("Day: " + day);
+    console.log("Week: " + week);
+    grab_sched_links(today_only, school_id, student_id, week, day, height, width);
 }
 
-function get_schedule(width, height, week, school_id, person_id, day) {
-    var image_var = 'http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=' + school_id + '/sv-se&type=-1&id=' + person_id + '&period=&week=' + week + '&mode=0&printer=0&colors=32&head=1&clock=1&foot=1&day=' + day + '&width=' + width + '&height=' + height + '&maxwidth=' + width + '&maxheight=' + height;
-    return image_var;
-}
-
-function render_schedule(url) {
-    document.getElementById(schedule_img_id).src = url;
-}
-
-function render_mobile() {
-    var schedule = document.getElementById('col_1');
-    var school_id = document.getElementById('school_id').value;
-    var user_id = document.getElementById(ssn_id).value;
-    var week = (new Date()).getWeek();
-    var link_array = [];
-    var width = screen.width;
-    var height = screen.height;
-    console.log('Width: ' + width);
-    console.log('Height: ' + height);
-    console.log('Week: ' + week);
-    console.log('School ID: ' + school_id);
-    console.log('Person ID: ' + user_id);
-    day_array.forEach(function(day) {
-        console.log(day);
-        link_array.push(get_schedule(width, height, week, school_id, user_id, day));
-    });
-    var i = 1;
-    console.log(link_array);
-    link_array.forEach(function(element) {
-        console.log(element);
-        console.log(i);
-        document.getElementById('col_' + i).src = element;
-        i++;
-    });
-}
-
-var only_today = document.getElementById("current_day_only").checked
-
-function get_values(form) {
-    if (is_mobile) {
-        render_mobile();
-    } else {
-        var schedule = document.getElementById(schedule_img_id);
-        var width = schedule.offsetWidth;
-        var height = 1080;
-        var week = (new Date()).getWeek();
-        var school_id = form.select.value;
-        var person_id = form.person_id.value;
-        if(only_today){
-            var day = Date.getDay();
-            var day_number = day_array[day]
+function grab_sched_links(today_only, school_id, student_id, week, day, height, width) {
+    if (today_only) {
+        var link = schedule_api(school_id, student_id, week, day, height, width);
+        append_schedule(link, 'col_1')
+    }
+    else {
+        var link_array = [''];
+        day_array.forEach(function(e){
+            var link = schedule_api(school_id, student_id, week, e, height, width);
+            link_array.push(link);
+        });
+        console.log(link_array);
+        for(var i = 1; i < 6; i++) {
+            append_schedule(link_array[i], 'col_' + i);
         }
-        else(){
-            var day = 0;
-        }
-        var schedule_url = get_schedule(width, height, week, school_id, person_id, day);
-        console.log('Width: ' + width);
-        console.log('Height: ' + height);
-        console.log('Week: ' + week);
-        console.log('School ID: ' + school_id);
-        console.log('Person ID: ' + person_id);
-        console.log('Schedule URL: ' + schedule_url);
-        render_schedule(schedule_url);
+
     }
 }
-window.onresize = resize;
 
-function resize() {
-    var width = screen.width;
-    document.getElementById(button_id).click();
+function append_schedule(link, tag_id) {
+    document.getElementById(tag_id).src = link;
+}
+function get_value(type, element_id) {
+    if(type === 'checkbox') {
+        return document.getElementById(element_id).checked;
+    }
+    else if(type === 'text' || type === 'checkbox' || type === 'select') {
+        return document.getElementById(element_id).value;    
+    }
+    else if(type === 'width') {
+        return document.getElementById(element_id).offsetWidth;
+    }
+    else if(type === 'height') {
+        return document.getElementById(element_id).offsetHeight;
+    }
+}
+
+function schedule_api(school_id ,user_id, week, day, height, width) {
+    var schedule_link = 'http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=' + school_id + '/sv-se&type=-1&id=' + user_id + '&period=&week=' + week + '&mode=0&printer=0&colors=32&head=1&clock=1&foot=1&day=' + day + '&width=' + width + '&height=' + height + '&maxwidth=' + width + '&maxheight=' + height;
+    return schedule_link;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return false;
+}
+window.onload = function() {
+    if (getCookie('studentid') !== false) {
+        console.log('It is not false');
+        var tmptmp = document.getElementById('person_id').value = getCookie('studentid');
+        main();
+    }
 }
