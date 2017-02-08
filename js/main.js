@@ -19,19 +19,26 @@ function time() {
 function main() {
     //This will be the main function that is going to be used for getting all the values and calling differnet functions. Will be trying to make as many small functions as possible so that I easily can reuse them
     var student_id = get_value('text', 'person_id');
-    var width = get_value('width', 'col_1');
-    var height = get_value('height', 'col_1');
-    var time_array = time();
-    var day = time_array[1];
-    var week = time_array[0];
-    var school_id = get_value('select', 'school_id');
-    document.cookie = "studentid=" + student_id +"; expires=Thu, 18 Dec 2018 12:00:00 UTC";
-    console.log('Student ID = ' + student_id);
-    console.log('Width = ' + width);
-    console.log('Height = ' + height);
-    console.log("Day: " + day);
-    console.log("Week: " + week);
-    grab_sched_links(school_id, student_id, week, day, height, width);
+    if(student_id == '') {
+      document.getElementById("submit_label").innerHTML= "Please enter your class ID First"
+    }
+    else {
+      document.getElementById("submit_label").innerHTML= ""
+      var width = get_value('width', 'col_1');
+      var height = get_value('height', 'col_1');
+      var time_array = time();
+      var day = time_array[1];
+      var week = time_array[0];
+      var school_id = get_value('select', 'school_id');
+      document.cookie = "studentid=" + student_id +"; expires=Thu, 18 Dec 2018 12:00:00 UTC";
+      console.log('Student ID = ' + student_id);
+      console.log('Width = ' + width);
+      console.log('Height = ' + height);
+      console.log("Day: " + day);
+      console.log("Week: " + week);
+      grab_sched_links(school_id, student_id, week, day, height, width);
+    }
+
 }
 
 function grab_sched_links(school_id, student_id, week, day, height, width) {
@@ -47,7 +54,7 @@ function get_value(type, element_id) {
         return document.getElementById(element_id).checked;
     }
     else if(type === 'text' || type === 'checkbox' || type === 'select') {
-        return document.getElementById(element_id).value;    
+        return document.getElementById(element_id).value;
     }
     else if(type === 'width') {
         return document.getElementById(element_id).offsetWidth;
@@ -78,11 +85,11 @@ function getCookie(cname) {
     return false;
 }
 window.onload = function() {
-    if (getCookie('studentid') !== false) {
+    document.getElementById('day').value = time()[2]
+    if (getCookie('studentid') !== false ) {
         console.log('It is not false');
         var tmptmp = document.getElementById('person_id').value = getCookie('studentid');
-        document.getElementById('day').value = time()[2]
         main();
     }
-    document.getElementById('day').value = time()[2]
+
 }
