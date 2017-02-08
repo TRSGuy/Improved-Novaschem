@@ -1,9 +1,10 @@
 var now = new Date();
-var day_array = [1, 2, 4, 8, 16]
+var day_array = [1, 2, 4, 8, 16];
 var page_loaded = false;
-window.onload = function () {
+window.onload = function() {
     page_loaded = true;
-}
+
+};
 function time() {
     Date.prototype.getWeek = function() {
         var onejan = new Date(this.getFullYear(), 0, 1);
@@ -11,13 +12,12 @@ function time() {
     };
     var weekNumber = (new Date()).getWeek();
     var day_number = now.getDay() - 1;
-    var array_day = day_array[day_number];
-    return [weekNumber, array_day];
+    var array_day = day_array[document.getElementById('day').value];
+    return [weekNumber, array_day, day_number];
 }
 
 function main() {
     //This will be the main function that is going to be used for getting all the values and calling differnet functions. Will be trying to make as many small functions as possible so that I easily can reuse them
-    var today_only = get_value('checkbox', 'current_day_only');
     var student_id = get_value('text', 'person_id');
     var width = get_value('width', 'col_1');
     var height = get_value('height', 'col_1');
@@ -27,31 +27,16 @@ function main() {
     var school_id = get_value('select', 'school_id');
     document.cookie = "studentid=" + student_id +"; expires=Thu, 18 Dec 2018 12:00:00 UTC";
     console.log('Student ID = ' + student_id);
-    console.log('Current Day Only = ' + today_only);
     console.log('Width = ' + width);
     console.log('Height = ' + height);
     console.log("Day: " + day);
     console.log("Week: " + week);
-    grab_sched_links(today_only, school_id, student_id, week, day, height, width);
+    grab_sched_links(school_id, student_id, week, day, height, width);
 }
 
-function grab_sched_links(today_only, school_id, student_id, week, day, height, width) {
-    if (today_only) {
-        var link = schedule_api(school_id, student_id, week, day, height, width);
-        append_schedule(link, 'col_1')
-    }
-    else {
-        var link_array = [''];
-        day_array.forEach(function(e){
-            var link = schedule_api(school_id, student_id, week, e, height, width);
-            link_array.push(link);
-        });
-        console.log(link_array);
-        for(var i = 1; i < 6; i++) {
-            append_schedule(link_array[i], 'col_' + i);
-        }
-
-    }
+function grab_sched_links(school_id, student_id, week, day, height, width) {
+    var link = schedule_api(school_id, student_id, week, day, height, width);
+    append_schedule(link, 'col_1')
 }
 
 function append_schedule(link, tag_id) {
@@ -96,6 +81,8 @@ window.onload = function() {
     if (getCookie('studentid') !== false) {
         console.log('It is not false');
         var tmptmp = document.getElementById('person_id').value = getCookie('studentid');
+        document.getElementById('day').value = time()[2]
         main();
     }
+    document.getElementById('day').value = time()[2]
 }
