@@ -18,6 +18,7 @@ input{
 }
 input[type="text"] {
     width: 4em;
+    text-align: center;
 }
 input:focus{
     outline: none;
