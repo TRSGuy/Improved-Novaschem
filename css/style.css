@@ -23,6 +23,10 @@ input[type="text"] {
 input:focus{
     outline: none;
 }
+input[type="button"] {
+    border: solid 1px #0FF;
+}
+
 select {
     background: #000;
     color: #0FF;
