@@ -4,15 +4,15 @@
 }
 body {
     background: #000;
-    color: #0CC;
+    color: #0FF;
     font-family: "Roboto", sans-serif;
 }
 input{
     background: #000;
-    color: #0CC;
+    color: #0FF;
     border: none;
     border-bottom: solid;
-    border-bottom-color: #0CC;
+    border-bottom-color: #0FF;
     border-bottom-width: 1px;
     border-top: none;
     -webkit-transition: border-bottom 1s;
@@ -20,13 +20,17 @@ input{
     -webkit-transition: border-top 1s;
     transition: border-top 1s;
 }
+input[type="button"] {
+    border-left: solid 1px #0FF;
+    border-right: solid 1px #0FF;
+}
 input:focus{
     outline: none;
-    border-top: 1px solid #0CC;
+    border-top: 1px solid #0FF;
 }
 select {
     background: #000;
-    color: #0CC;
+    color: #0FF;
     border: none;
-    border-bottom: solid 1px #0CC;
+    border-bottom: solid 1px #0FF;
 }
