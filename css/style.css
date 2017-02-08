@@ -15,14 +15,9 @@ input{
     border-bottom-color: #0FF;
     border-bottom-width: 1px;
     border-top: none;
-    -webkit-transition: border-bottom 1s;
-    transition: border-bottom 1s;
-    -webkit-transition: border-top 1s;
-    transition: border-top 1s;
 }
 input:focus{
     outline: none;
-    border-top: 1px solid #0FF;
 }
 select {
     background: #000;
