@@ -4,14 +4,16 @@
 }
 body {
     background: #000;
-    color: #FFF;
+    color: #06C;
     font-family: "Roboto", sans-serif;
 }
 input{
     background: #000;
-    color: #FFF;
+    color: #06C;
 }
 select {
     background: #000;
-    color: #FFF;
+    color: #06C;
+    border: none;
+    border-bottom: solid 1px #06C;
 }
