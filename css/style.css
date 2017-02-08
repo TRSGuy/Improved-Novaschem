@@ -22,8 +22,6 @@ input{
 }
 input:focus{
     outline: none;
-}
-input:active {
     border-top: 1px solid #0CC;
 }
 select {
