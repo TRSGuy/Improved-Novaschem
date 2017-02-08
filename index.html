@@ -17,22 +17,16 @@
             </select>
             <input id="person_id" type="text" name="person_id" value="" placeholder="Class ID" value="" onkeydown="if (event.keyCode == 13) main()" />
             <input id="button" type="button" name="submit" value="Submit" onClick="main()">
-            <input id="current_day_only" type="checkbox" name="current_day_only" value="current_day_only" checked="true" onchange="main()">
-            <label for="current_day_only">Show only today</label>
-            <select id="day" name="day">
+            <select id="day" name="day" onchange="main();">
                 <option value="0">Monday</option>
                 <option value="1">Tuesday</option>
-                <option value="2">wednesday</option>
+                <option value="2">Wednesday</option>
                 <option value="3">Thursday</option>
                 <option value="4">Friday</option>
             </select>
         </form>
         <div class="mobile-container">
             <img src="img/no_schedule.png" class="col" id="col_1">
-            <img src="img/no_schedule.png" class="col" id="col_2">
-            <img src="img/no_schedule.png" class="col" id="col_3">
-            <img src="img/no_schedule.png" class="col" id="col_4">
-            <img src="img/no_schedule.png" class="col" id="col_5">
         </div>
     </body>
 </html>
