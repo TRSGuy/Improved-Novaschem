@@ -11,15 +11,18 @@ input{
     background: #000;
     color: #06C;
     border: none;
-    border-bottom: solid 1px;
+    border-bottom: solid;
     border-bottom-color: #06C;
-    -webkit-transition: border-bottom-color 2s; /* Safari */
-    transition: border-bottom-color 2s;
+    border-bottom-width: 1px;
+    -webkit-transition: border-bottom-color 1s;
+    transition: border-bottom-color 1s;
+    -webkit-transition: border-bottom-width 1s;
+    transition: border-bottom-width 1s;
 }
 input:focus{
     outline: none;
     border-bottom-color: #0FF;
-
+    border-bottom-width: 4px;
 }
 select {
     background: #000;
