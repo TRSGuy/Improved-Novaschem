@@ -14,15 +14,17 @@ input{
     border-bottom: solid;
     border-bottom-color: #0CC;
     border-bottom-width: 1px;
-    -webkit-transition: border-bottom-color 1s;
-    transition: border-bottom-color 1s;
-    -webkit-transition: border-bottom-width 1s;
-    transition: border-bottom-width 1s;
+    border-top: none;
+    -webkit-transition: border-bottom 1s;
+    transition: border-bottom 1s;
+    -webkit-transition: border-top 1s;
+    transition: border-top 1s;
 }
 input:focus{
     outline: none;
-    border-bottom-color: #0FF;
-    border-bottom-width: 2px;
+}
+input:active {
+    border-top: 1px solid #0CC;
 }
 select {
     background: #000;
