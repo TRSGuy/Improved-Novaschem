@@ -22,9 +22,11 @@ input[type="text"] {
 }
 input:focus{
     outline: none;
+    outline: 1px solid #0FF;
 }
 select:focus {
     outline: none;
+    outline: 1px solid #0FF;
 }
 input[type="button"] {
     border: solid 1px #0FF;
