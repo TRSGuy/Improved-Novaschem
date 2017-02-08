@@ -16,6 +16,9 @@ input{
     border-bottom-width: 1px;
     border-top: none;
 }
+input[type="text"] {
+    width: 4em;
+}
 input:focus{
     outline: none;
 }
