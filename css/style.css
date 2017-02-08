@@ -20,10 +20,6 @@ input{
     -webkit-transition: border-top 1s;
     transition: border-top 1s;
 }
-input[type="button"] {
-    border-left: solid 1px #0FF;
-    border-right: solid 1px #0FF;
-}
 input:focus{
     outline: none;
     border-top: 1px solid #0FF;
