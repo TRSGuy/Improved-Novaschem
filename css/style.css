@@ -1,3 +1,11 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: inherit;
+    padding: inherit;
+}
 .col {
     width: 100%;
     height: 100vh;
