@@ -83,7 +83,12 @@ function getCookie(cname) {
     return false;
 }
 window.onload = function() {
-    document.getElementById('day').value = time()[2]
+    if (time()[2] > 4) {
+        document.getElementById('day').value = 0;
+    }
+    else {
+        document.getElementById('day').value = time()[2];
+    }
     if (getCookie('studentid') !== false ) {
         var tmptmp = document.getElementById('person_id').value = getCookie('studentid');
         main();
