@@ -6,15 +6,11 @@
         <title>Improved NovaSchem</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
-        <script type="text/javascript" src="js/main.js">
-</script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/main.js"></script>
     </head>
     <body>
-        <form id="main-form" class="main-form" action="javascript:void(0);" method="">
-            <select id="school_id" name="select" style="display: none;">
-                <option value="58700">Nacka Gymnasium</option>
-                <option disabled="true">More comming soon...</option>
-            </select>
+        <form id="main_form" class="main_form" action="javascript:void(0);">
             <select id="day" name="day" onchange="main();">
                 <option value="0">Monday</option>
                 <option value="1">Tuesday</option>
@@ -22,13 +18,12 @@
                 <option value="3">Thursday</option>
                 <option value="4">Friday</option>
             </select>
-            <input id="person_id" type="text" name="person_id" value="" placeholder="Class ID" value="" onkeydown="if (event.keyCode == 13) main()" />
-            <input id="button" type="button" name="submit" value="Submit" onClick="main()">
-            <br />
-            <label id="submit_label" for="submit"></label>
+            <input id="person_id" type="text" name="person_id" placeholder="Class ID" onkeydown="if (event.keyCode == 13) main()"/>
+            <input id="button" type="button" name="submit" value="Submit" onClick="main()"/>
+            <label id="submit_label" for="submit"><br/></label>
         </form>
-        <div class="mobile-container">
-            <img src="" class="col" id="col_1">
+        <div class="image_container">
+          <img src="" class="schedule" id="schedule_container">
         </div>
     </body>
 </html>
