@@ -7,7 +7,7 @@ console.log('Sincerly: Vorap, from [TheCorruptVoxel] team, ##TheCorruptVoxel on 
 
 function site_guide() {
   $('#first_visit').text('');
-  $('#first_visit').append("<p>Welcome to Voraschem, the improved version of Novasoftware's 'Novaschem'. <br/><br/> To get started, enter your four charachter long class ID and hit the submit button! <br/> This site will then store your class ID in your device and automatically load your schedule for the current day! <br/>If you are a teacher, please check the teacher checkbox up in the top right corner, as it will allow you to use your initials to get your schedule for the day<br/> Please report any bugs or give feedback <a href='https://github.com/TRSGuy/Improved-Novaschem/issues'>here</a>.  Thanks, and enjoy your stay</p>");
+  $('#first_visit').append("<p>Welcome to Voraschem, the improved version of Novasoftware's 'Novaschem'. <br/><br/>To get started, enter your four charachter long class ID and hit the submit button! <br/>This site will then store your class ID in your device and automatically load your schedule for the current day! <br/><br/>If you are a teacher, please check the teacher checkbox up in the top right corner, as it will allow you to use your initials to get your schedule for the day<br/><br/>Please report any bugs or give feedback <a href='https://github.com/TRSGuy/Improved-Novaschem/issues'>here</a>.  Thanks, and enjoy your stay</p>");
 }
 
 function time() {
