@@ -6,16 +6,14 @@ html {
 body {
     margin: inherit;
     padding: inherit;
+    background: #7289da;
+    color: #FFF;
+    font-family: "Roboto", sans-serif;
 }
 .schedule {
     width: 100%;
     height: 100vh;
     margin-top: 4px;
-}
-body {
-    background: #7289da;
-    color: #FFF;
-    font-family: "Roboto", sans-serif;
 }
 
 input[type="text"] {
