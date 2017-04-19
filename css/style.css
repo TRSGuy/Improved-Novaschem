@@ -14,33 +14,54 @@ body {
 }
 body {
     background: #000;
-    color: #0FF;
+    color: #FFF;
     font-family: "Roboto", sans-serif;
 }
 
 input[type="text"] {
   width: 4em;
-  color: #0FF;
+  color: #FFF;
   background: #000;
   border: none;
-  border-bottom: 1px solid #0FF;
+  border-bottom: 1px solid #FFF;
 }
 input[type="button"] {
-  color: #0FF;
+  color: #FFF;
   background: #000;
   border: none;
-  border-bottom: 1px solid #0FF;
+  border-bottom: 1px solid #FFF;
 }
 input:focus {
   outline: none;
-  border-top: 1px solid #0FF;
+  border-top: 1px solid #FFF;
 }
 select {
   background: #000;
-  color: #0FF;
+  color: #FFF;
   border: none;
-  border-bottom: 1px solid #0FF;
+  border-bottom: 1px solid #FFF;
 }
 select:focus {
-  border-top: 1px solid #0FF;
+  border-top: 1px solid #FFF;
+}
+
+ul {
+  list-style: none;
+  padding:0;
+}
+li {
+  display: block;
+  float: left;
+  padding-right: 15px;
+}
+.righty {
+  float: right;
+}
+a:visited {
+  color: #FFF;
+}
+.page-divider {
+  background: linear-gradient(90deg, transparent, #FFF, transparent);
+  height: 1px;
+  width: 100%;
 }
