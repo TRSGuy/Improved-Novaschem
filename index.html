@@ -21,9 +21,19 @@
             <input id="person_id" type="text" name="person_id" placeholder="Class ID" onkeydown="if (event.keyCode == 13) main()"/>
             <input id="button" type="button" name="submit" value="Submit" onClick="main()"/>
             <label id="submit_label" for="submit"></label>
+            <label for="teacher" class="righty">I am a teacher<input type="checkbox" onchange="main();" name="teacher" id="teacher" value="teacher"></label>
         </form>
         <div class="image_container">
+          <p id="first_visit"></p>
           <img src="" class="schedule" id="schedule_container" alt="">
+        </div>
+        <div class="page-divider"></div>
+        <div class="footer">
+          <ul>
+            <li>Various Links: </li>
+            <li><a href="https://schoolsoftelev.nacka.se/wa/auth?location=https://schoolsoftelev.nacka.se/nacka/proxyLogin.jsp&authmech=Integrerad_Windowsautentisering" target="_blank">SchoolSoft</a></li>
+            <li><a href="http://www.nacka.se/valfard-skola/nacka-gymnasium/skolinfo/matsedel/" target="_blank">Lunch</a></li>
+          </ul>
         </div>
     </body>
 </html>
