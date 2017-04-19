@@ -6,7 +6,7 @@ html {
 body {
     margin: inherit;
     padding: inherit;
-    background: #7289da;
+    background: #36393e;
     color: #FFF;
     font-family: "Roboto", sans-serif;
 }
@@ -19,13 +19,13 @@ body {
 input[type="text"] {
   width: 4em;
   color: #FFF;
-  background: #000;
+  background: #36393e;
   border: none;
   border-bottom: 1px solid #FFF;
 }
 input[type="button"] {
   color: #FFF;
-  background: #000;
+  background: #36393e;
   border: none;
   border-bottom: 1px solid #FFF;
 }
@@ -34,7 +34,7 @@ input:focus {
   border-top: 1px solid #FFF;
 }
 select {
-  background: #000;
+  background: #36393e;
   color: #FFF;
   border: none;
   border-bottom: 1px solid #FFF;
