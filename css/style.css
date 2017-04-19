@@ -59,6 +59,9 @@ li {
 a:visited {
   color: #FFF;
 }
+a {
+  color: #FFF;
+}
 .page-divider {
   background: linear-gradient(90deg, transparent, #FFF, transparent);
   height: 1px;
