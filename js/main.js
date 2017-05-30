@@ -53,7 +53,12 @@ function main() {
       else{
         document.cookie = "teacher=false; expires=Thu, 18 Dec 2100 12:00:00 UTC";
       }
-      $("#first_visit").hide('');
+      if(!document.cookie === '') {
+        $("#first_visit").hide();
+      }
+      else {
+        $("#first_visit").slideUp('');
+      }
       $("#submit_label").text("");
       var width = $("#schedule_container").width();
       var height = $('#schedule_container').height();
@@ -68,7 +73,7 @@ function main() {
 
 function grab_sched_links(school_id, student_id, week, day, height, width) {
     var link = schedule_api(school_id, student_id, week, day, height, width);
-    append_schedule(link, '#schedule_container');
+    append_schedule(link, '#schedule_container')  ;
     return link;
 }
 
