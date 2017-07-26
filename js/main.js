@@ -2,10 +2,12 @@ function getTime() { // docs:getTime
 	Date.prototype.getWeek = function () { var oneJan = new Date(this.getFullYear(), 0, 1); return Math.ceil((((this - oneJan) / 86400000) + oneJan.getDay() + 1) / 7); };
 	return [new Date().getWeek(), new Date().getDay() - 1, [1, 2, 4, 8, 16][$("#day").val()]];
 }
-var ta = getTime();
+var ta;
 function initialize() {
+	ta = getTime();
 	$("#day").val(ta[1]);
 	$("#week").val(ta[0]);
+	ta  = getTime();
 };
 function firstVisit() { // docs:firstVisit
 	var siteGuideMessage = [
