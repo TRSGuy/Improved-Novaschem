@@ -41,36 +41,31 @@ var cookies = document.cookie.replace(/\s+/g, "").split(";");
 	}
 	return false;
 };
-function main() { // docs:main
-	var ao = { 
-		"uid": $("#person-id").val(),
-		"sc": $("#schedule-container")
-	};
-	if(ao["uid"].length < 3) { firstVisit(); }
+function update() { // docs:update	
+	if($("#person-id").val().length < 3) { firstVisit(); }
 	else {
 		$("#first-visit").slideUp();
-		ao = {
-			"uid": ao["uid"],
-			"sc": ao["sc"],
-			"lo": $("#loading-animation"),
-			"sid": "58700"
-		};
-		ao["sc"].on("load" ,function(){ao["lo"].hide(500);});
-		ao["sc"].attr("src", genSchedLink(ao));
-		document.cookie = "json={\"uid\": \"" + ao["uid"] + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
+		main();
 	}
 };
+function main() { // docs:main
+		"uid": $("#person-id").val(),
+		"sc": $("#schedule-container"),
+		"lo": $("#loading-animation"),
+		"sid": "58700"
+	};
+	ao["sc"].on("load", function(){ao["lo"].hide(500);});
+	ao["sc"].attr("src", genSchedLink(ao));
+	document.cookie = "json={\"uid\": \"" + ao["uid"] + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
+};
 window.onload = function() { // docs:onload
-	var da = $("#day");
-	var we = $("#week");
-	var uid = $("#person-id");
-	da.val(getTime()[1]);
-	we.val(getTime()[0]);
+	$("#day").val(getTime()[1]);
+	$("#week").val(getTime()[0]);
 	if(!grabCookie("json")) {
 		firstVisit();
 	} else {
-		uid.val(JSON.parse(grabCookie("json"))["uid"]);
-		main();
+		$("#person-id").val(JSON.parse(grabCookie("json"))["uid"]);
+		update();
 	};
 };
-window.onresize = function() { window.onload(); };
+window.onresize = function() { update(); };

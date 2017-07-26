@@ -11,17 +11,17 @@
 	</head>
 	<body>
 		<form id="main-form" class="main-form" action="javascript:void(0);">
-			<select id="day" name="day" onchange="main();">
+			<select id="day" name="day" onchange="update();">
 				<option value="0">Monday</option>
 				<option value="1">Tuesday</option>
 				<option value="2">Wednesday</option>
 				<option value="3">Thursday</option>
 				<option value="4">Friday</option>
 			</select>
-			<input id="person-id" type="text" name="person-id" placeholder="Class ID" onkeydown="if (event.keyCode == 13) main()"/>
-			<input id="button" type="button" name="submit" value="Submit" onclick="main()"/>
+			<input id="person-id" type="text" name="person-id" placeholder="Class ID" onkeydown="if (event.keyCode == 13) update()" />
+			<input id="button" type="button" name="submit" value="Submit" onclick="update()" />
 			<label id="submit-label" for="submit"></label>
-			<input class="righty" id="week" name="week" type="number" min="1" max="52" onchange="main();"/>
+			<input class="righty" id="week" name="week" type="number" min="1" max="52" onchange="update();" />
 			<label class="righty" id="week-label" for="week">Week:</label>
 		</form>
 		<div class="image-container">
