@@ -1,24 +1,7 @@
 function getTime() { // docs:getTime
 	Date.prototype.getWeek = function () { var oneJan = new Date(this.getFullYear(), 0, 1); return Math.ceil((((this - oneJan) / 86400000) + oneJan.getDay() + 1) / 7); };
 	return [new Date().getWeek(), new Date().getDay() - 1, [1, 2, 4, 8, 16][$("#day").val()]];
-};
-function main() { // docs:main
-	var uid = $("#person-id").val();
-	if(uid.length < 3) firstVisit();
-	else {
-		$("#first-visit").slideUp();
-		var sc = $("#schedule-container");
-		var loader = $("#loading-animation");
-		sc.on('load',function(){loader.hide(500);});
-		var wi = Math.round(sc.width()); // The reason we round this is described in issues #16
-		var he = Math.round(sc.height()); // The reason we round this is described in issue #16
-		var ta = getTime();
-		var sid = "58700";
-		var link = genSchedLink(sid, uid, $("#week").val(), ta[2], he, wi);
-		sc.attr("src", link);
-		document.cookie = "json={\"uid\": \"" + uid + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
-	}
-};
+}
 function firstVisit() { // docs:firstVisit
 	var siteGuideMessage = [
 		"<span class=\"header\">Getting started</span>",
@@ -65,6 +48,23 @@ var cookies = document.cookie.replace(/\s+/g, "").split(";");
 		}
 	}
 	return false;
+};
+function main() { // docs:main
+	var uid = $("#person-id").val();
+	if(uid.length < 3) { firstVisit(); }
+	else {
+		$("#first-visit").slideUp();
+		var sc = $("#schedule-container");
+		var loader = $("#loading-animation");
+		sc.on("load" ,function(){loader.hide(500);});
+		var wi = Math.round(sc.width()); // The reason we round this is described in issues #16
+		var he = Math.round(sc.height()); // The reason we round this is described in issue #16
+		var ta = getTime();
+		var sid = "58700";
+		var link = genSchedLink(sid, uid, $("#week").val(), ta[2], he, wi);
+		sc.attr("src", link);
+		document.cookie = "json={\"uid\": \"" + uid + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
+	}
 };
 window.onload = function() { // docs:onload
 	$("#day").val(getTime()[1]);
