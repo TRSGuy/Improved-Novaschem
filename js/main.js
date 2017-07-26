@@ -15,27 +15,27 @@ function firstVisit() { // docs:firstVisit
 	$("#first-visit").append(siteGuideMessage);
 	$("#first-visit").slideDown();
 };
-function genSchedLink(sid, uid, we, da, he, wi) { // docs:genSchedLink
+function genSchedLink(ao) { // docs:genSchedLink
 	var link = [
 		"http://www.novasoftware.se/ImgGen/schedulegenerator.aspx",
 		"?format=png",
-		"&schoolid=" + sid,
+		"&schoolid=" + ao["sid"],
 		"/sv-se",
 		"&type=-1",
-		"&id=" + uid,
+		"&id=" + ao["uid"],
 		"&period=",
-		"&week=" + we,
+		"&week=" + ao["we"],
 		"&printer=0",
 		"&mode=0",
 		"&colors=32",
 		"&head=1",
 		"&clock=1",
 		"&foot=1",
-		"&day=" + da,
-		"&width=" + wi,
-		"&height=" + he,
-		"&maxwidth=" + wi,
-		"&maxheight=" + he
+		"&day=" + ao["da"],
+		"&width=" + ao["wi"],
+		"&height=" + ao["he"],
+		"&maxwidth=" + ao["wi"],
+		"&maxheight=" + ao["he"]
 	].join("");
 	return link;
 };
@@ -49,20 +49,21 @@ var cookies = document.cookie.replace(/\s+/g, "").split(";");
 	return false;
 };
 function main() { // docs:main
-	var uid = $("#person-id").val();
-	if(uid.length < 3) { firstVisit(); }
+	var ao = { 
+		"uid": $("#person-id").val()
+	};
+	if(ao["uid"].length < 3) { firstVisit(); }
 	else {
 		$("#first-visit").slideUp();
-		var sc = $("#schedule-container");
-		var loader = $("#loading-animation");
-		sc.on("load" ,function(){loader.hide(500);});
-		var wi = Math.round(sc.width()); // The reason we round this is described in issues #16
-		var he = Math.round(sc.height()); // The reason we round this is described in issue #16
-		var ta = getTime();
-		var sid = "58700";
-		var link = genSchedLink(sid, uid, $("#week").val(), ta[2], he, wi);
-		sc.attr("src", link);
-		document.cookie = "json={\"uid\": \"" + uid + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
+		ao["sc"] = $("#schedule-container");
+		ao["lo"] = $("#loading-animation");
+		ao["sc"].on("load" ,function(){loader.hide(500);});
+		ao["wi"] = Math.round(sc.width()); // The reason we round this is described in issues #16
+		ao["he"] = Math.round(sc.height()); // The reason we round this is described in issue #16
+		ao["ta"] = getTime();
+		ao["sid"] = "58700";
+		ao["sc"].attr("src", genSchedLink(ao));
+		document.cookie = "json={\"uid\": \"" + ao["uid"] + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
 	}
 };
 window.onload = function() { // docs:onload
