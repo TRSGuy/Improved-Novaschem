@@ -54,6 +54,7 @@ function update() { // docs:update
 	}
 };
 function main() { // docs:main
+	var ao = {
 		"uid": $("#person-id").val(),
 		"sc": $("#schedule-container"),
 		"lo": $("#loading-animation"),
