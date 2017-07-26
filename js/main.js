@@ -16,6 +16,8 @@ function firstVisit() { // docs:firstVisit
 	$("#first-visit").slideDown();
 };
 function genSchedLink(ao) { // docs:genSchedLink
+	ao["wi"] = Math.round(ao["sc"].width());
+	ao["he"] = Math.round(ao["sc"].height());
 	var link = [
 		"http://www.novasoftware.se/ImgGen/schedulegenerator.aspx",
 		"?format=png",
@@ -31,11 +33,11 @@ function genSchedLink(ao) { // docs:genSchedLink
 		"&head=1",
 		"&clock=1",
 		"&foot=1",
-		"&day=" + ao["ta"][2],
-		"&width=" + Math.round(ao["wi"]),
-		"&height=" + Math.round(ao["he"]),
-		"&maxwidth=" + Math.round(ao["wi"]),
-		"&maxheight=" + Math.round(ao["he"]),
+		"&day=" + getTime()[2],
+		"&width=" + ao["wi"],
+		"&height=" + ao["he"],
+		"&maxwidth=" + ao["wi"],
+		"&maxheight=" + ao["he"],
 	].join("");
 	return link;
 };
@@ -60,9 +62,6 @@ function main() { // docs:main
 			"uid": ao["uid"],
 			"sc": ao["sc"],
 			"lo": $("#loading-animation"),
-			"wi": ao["sc"].width(),
-			"he": ao["sc"].height(),
-			"ta": getTime(),
 			"sid": "58700"
 		};
 		ao["sc"].on("load" ,function(){ao["lo"].hide(500);});
