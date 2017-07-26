@@ -19,20 +19,11 @@ function genSchedLink(ao) { // docs:genSchedLink
 	ao["wi"] = Math.round(ao["sc"].width());
 	ao["he"] = Math.round(ao["sc"].height());
 	var link = [
-		"http://www.novasoftware.se/ImgGen/schedulegenerator.aspx",
-		"?format=png",
-		"&schoolid=" + ao["sid"],
-		"/sv-se",
-		"&type=-1",
-		"&id=" + ao["uid"],
-		"&period=",
+		"http://www.novasoftware.se/ImgGen/schedulegenerator.aspx", "?format=png",
+		"&schoolid=" + ao["sid"], "/sv-se", "&type=-1",
+		"&id=" + ao["uid"], "&period=",
 		"&week=" + $("#week").val(),
-		"&printer=0",
-		"&mode=0",
-		"&colors=32",
-		"&head=1",
-		"&clock=1",
-		"&foot=1",
+		"&printer=0", "&mode=0", "&colors=32", "&head=1", "&clock=1", "&foot=1",
 		"&day=" + getTime()[2],
 		"&width=" + ao["wi"],
 		"&height=" + ao["he"],
@@ -66,7 +57,6 @@ function main() { // docs:main
 		};
 		ao["sc"].on("load" ,function(){ao["lo"].hide(500);});
 		ao["sc"].attr("src", genSchedLink(ao));
-		console.log(genSchedLink(ao));
 		document.cookie = "json={\"uid\": \"" + ao["uid"] + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
 	}
 };
