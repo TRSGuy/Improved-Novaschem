@@ -19,7 +19,7 @@ function firstVisit() { // docs:firstVisit
 	$("#first-visit").text("");
 	$("#first-visit").append(siteGuideMessage);
 	$("#first-visit").slideDown();
-};
+}
 function genSchedLink(ao) { // docs:genSchedLink
 	ao["wi"] = Math.round(ao["sc"].width());
 	ao["he"] = Math.round(ao["sc"].height());
