@@ -37,13 +37,12 @@ function genSchedLink(sid, uid, we, da, he, wi) { // docs:genSchedLink
 		"&maxwidth=" + wi,
 		"&maxheight=" + he
 	].join("");
-	return link
+	return link;
 };
 function grabCookie(cname) { // docs:grabCookie
 var cookies = document.cookie.replace(/\s+/g, "").split(";");
-	for(i = 0; i < cookies.length; i++) {
-		console.log(cookies[i].split("="));
-		if(cname == cookies[i].split("=")[0]) {
+	for(var i = 0; i < cookies.length; i++) {
+		if(cname === cookies[i].split("=")[0]) {
 			return cookies[i].split("=")[1];
 		}
 	}
