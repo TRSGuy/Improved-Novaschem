@@ -10,39 +10,17 @@
 		<script type="text/javascript" src="js/main.js"></script>
 	</head>
 	<body>
-		<form id="main-form" class="main-form" action="javascript:void(0);">
-			<select id="day" name="day" onchange="update();">
+		<div id="form-container">
+			<input type="text" id="uid" name="person-id" placeholder="Class ID" />
+			<select id="day" name="day">
 				<option value="0">Monday</option>
 				<option value="1">Tuesday</option>
 				<option value="2">Wednesday</option>
 				<option value="3">Thursday</option>
 				<option value="4">Friday</option>
 			</select>
-			<input id="person-id" type="text" name="person-id" placeholder="Class ID" onkeydown="if (event.keyCode == 13) update()" />
-			<input id="button" type="button" name="submit" value="Submit" onclick="update()" />
-			<label id="submit-label" for="submit"></label>
-			<input class="righty" id="week" name="week" type="number" min="1" max="52" onchange="update();" />
-			<label class="righty" id="week-label" for="week">Week:</label>
-		</form>
-		<div class="image-container">
-			<p id="first-visit"></p>
-			<center>
-				<video id="loading-animation" width="256" loop height="256" autoplay="autoplay">
-					<source src="https://zippy.gfycat.com/DearestVillainousJackrabbit.webm" type="video/webm" />
-				</video>
-			</center>
-			<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="schedule" id="schedule-container" alt="">
+			<input type="number" id="week" name="week" min="1" max="52" />
 		</div>
-		<div class="page-divider"></div>
-		<div class="footer">
-			<ul>
-				<li>Various Links: </li>
-				<li><a href="https://schoolsoftelev.nacka.se/wa/auth?location=https://schoolsoftelev.nacka.se/nacka/proxyLogin.jsp&authmech=Integrerad_Windowsautentisering" target="_blank">SchoolSoft</a></li>
-				<li><a href="http://www.nacka.se/valfard-skola/nacka-gymnasium/skolinfo/matsedel/" target="_blank">Lunch</a></li>
-				<li class="righty">
-					<p>This is a beta version, please <a href="https://github.com/TRSGuy/Improved-Novaschem/issues" target="_blank">report</a> any bugs found</p>
-				</li>
-			</ul>
-		</div>
+		<div id="schedule-container"></div>
 	</body>
 	</html>
