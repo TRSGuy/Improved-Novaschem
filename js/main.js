@@ -2,6 +2,11 @@ function getTime() { // docs:getTime
 	Date.prototype.getWeek = function () { var oneJan = new Date(this.getFullYear(), 0, 1); return Math.ceil((((this - oneJan) / 86400000) + oneJan.getDay() + 1) / 7); };
 	return [new Date().getWeek(), new Date().getDay() - 1, [1, 2, 4, 8, 16][$("#day").val()]];
 }
+var ta = getTime();
+function initialize() {
+	$("#day").val(ta[1]);
+	$("#week").val(ta[0]);
+};
 function firstVisit() { // docs:firstVisit
 	var siteGuideMessage = [
 		"<p class=\"header\">Getting started</p>",
@@ -24,7 +29,7 @@ function genSchedLink(ao) { // docs:genSchedLink
 		"&id=" + ao["uid"], "&period=",
 		"&week=" + $("#week").val(),
 		"&printer=0", "&mode=0", "&colors=32", "&head=1", "&clock=1", "&foot=1",
-		"&day=" + getTime()[2],
+		"&day=" + ta[2],
 		"&width=" + ao["wi"],
 		"&height=" + ao["he"],
 		"&maxwidth=" + ao["wi"],
@@ -59,8 +64,7 @@ function main() { // docs:main
 	document.cookie = "json={\"uid\": \"" + ao["uid"] + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
 };
 window.onload = function() { // docs:onload
-	$("#day").val(getTime()[1]);
-	$("#week").val(getTime()[0]);
+	initialize();
 	if(!grabCookie("json")) {
 		firstVisit();
 	} else {
