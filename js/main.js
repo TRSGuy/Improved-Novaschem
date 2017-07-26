@@ -4,9 +4,9 @@ function getTime() { // docs:getTime
 }
 function firstVisit() { // docs:firstVisit
 	var siteGuideMessage = [
-		"<span class=\"header\">Getting started</span>",
-		"<ol><li>Enter your four character class ID in the text field up at the top, where it says Class ID</li><li>Hit the submit button!</li><li>The schedule will load!</li></ol>",
-		"I'm sorry for any outages that may occur, our domain provider (DOT.TK) is having some issues with their redirects and Novasoftware is being generally shit at keeping their service up and running.",
+		"<p class=\"header\">Getting started</p>",
+		"<ol><li>Enter your four character Class ID</li><li>Hit the submit button!</li><li>Profit!</li></ol>",
+		"<p>I'm sorry for any outages that may occur. <br/><br/>Our domain provider (DOT.TK) is having some issues and Novasoftware is being generally shit.<br/>",
 		"If you would like to see another week, please use the week input in the top right<br/>",
 		"Please report any bugs or give feedback at our <a href=\"https://github.com/TRSGuy/Improved-Novaschem/issues\">GitHub</a>.",
 		"Thanks and enjoy your stay.</p>"
@@ -67,18 +67,19 @@ function main() { // docs:main
 		};
 		ao["sc"].on("load" ,function(){ao["lo"].hide(500);});
 		ao["sc"].attr("src", genSchedLink(ao));
-		console.log(genSchedLink(ao));
-		console.log(ao);
 		document.cookie = "json={\"uid\": \"" + ao["uid"] + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
 	}
 };
 window.onload = function() { // docs:onload
-	$("#day").val(getTime()[1]);
-	$("#week").val(getTime()[0]);
+	da = $("#day");
+	we = $("#week");
+	uid = $("#person-id")
+	da.val(getTime()[1]);
+	we.val(getTime()[0]);
 	if(!grabCookie("json")) {
 		firstVisit();
 	} else {
-		$("#person-id").val(JSON.parse(grabCookie("json"))["uid"]);
+		uid.val(JSON.parse(grabCookie("json"))["uid"]);
 		main();
 	};
 };
