@@ -24,14 +24,14 @@ function genSchedLink(ao) { // docs:genSchedLink
 		"&type=-1",
 		"&id=" + ao["uid"],
 		"&period=",
-		"&week=" + ao["we"],
+		"&week=" + ao["ta"][0],
 		"&printer=0",
 		"&mode=0",
 		"&colors=32",
 		"&head=1",
 		"&clock=1",
 		"&foot=1",
-		"&day=" + ao["da"],
+		"&day=" + ao["ta"][2],
 		"&width=" + ao["wi"],
 		"&height=" + ao["he"],
 		"&maxwidth=" + ao["wi"],
@@ -50,19 +50,25 @@ var cookies = document.cookie.replace(/\s+/g, "").split(";");
 };
 function main() { // docs:main
 	var ao = { 
-		"uid": $("#person-id").val()
+		"uid": $("#person-id").val(),
+		"sc": $("#schedule-container")
 	};
 	if(ao["uid"].length < 3) { firstVisit(); }
 	else {
 		$("#first-visit").slideUp();
-		ao["sc"] = $("#schedule-container");
-		ao["lo"] = $("#loading-animation");
-		ao["sc"].on("load" ,function(){loader.hide(500);});
-		ao["wi"] = Math.round(sc.width()); // The reason we round this is described in issues #16
-		ao["he"] = Math.round(sc.height()); // The reason we round this is described in issue #16
-		ao["ta"] = getTime();
-		ao["sid"] = "58700";
+		var ao = {
+			"uid": ao["uid"],
+			"sc": ao["sc"],
+			"lo": $("#loading-animation"),
+			"wi": Math.round(ao["sc"].width()),
+			"he": Math.round(ao["sc"].height()),
+			"ta": getTime(),
+			"sid": "58700",
+		};
+		ao["sc"].on("load" ,function(){ao["lo"].hide(500);});
 		ao["sc"].attr("src", genSchedLink(ao));
+		console.log(genSchedLink(ao));
+		console.log(ao);
 		document.cookie = "json={\"uid\": \"" + ao["uid"] + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
 	}
 };
