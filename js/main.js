@@ -56,7 +56,7 @@ function main() { // docs:main
 	if(ao["uid"].length < 3) { firstVisit(); }
 	else {
 		$("#first-visit").slideUp();
-		var ao = {
+		ao = {
 			"uid": ao["uid"],
 			"sc": ao["sc"],
 			"lo": $("#loading-animation"),
