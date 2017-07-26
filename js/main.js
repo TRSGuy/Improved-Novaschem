@@ -24,7 +24,7 @@ function genSchedLink(ao) { // docs:genSchedLink
 		"&type=-1",
 		"&id=" + ao["uid"],
 		"&period=",
-		"&week=" + ao["ta"][0],
+		"&week=" + $("#week").val(),
 		"&printer=0",
 		"&mode=0",
 		"&colors=32",
@@ -63,17 +63,18 @@ function main() { // docs:main
 			"wi": Math.round(ao["sc"].width()),
 			"he": Math.round(ao["sc"].height()),
 			"ta": getTime(),
-			"sid": "58700",
+			"sid": "58700"
 		};
 		ao["sc"].on("load" ,function(){ao["lo"].hide(500);});
 		ao["sc"].attr("src", genSchedLink(ao));
+		console.log(genSchedLink(ao));
 		document.cookie = "json={\"uid\": \"" + ao["uid"] + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
 	}
 };
 window.onload = function() { // docs:onload
-	da = $("#day");
-	we = $("#week");
-	uid = $("#person-id")
+	var da = $("#day");
+	var we = $("#week");
+	var uid = $("#person-id");
 	da.val(getTime()[1]);
 	we.val(getTime()[0]);
 	if(!grabCookie("json")) {
