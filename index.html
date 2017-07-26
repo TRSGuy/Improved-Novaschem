@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="utf-8">
-        <title>Improved NovaSchem</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css">
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="js/main.js"></script>
-    </head>
-    <body>
-        <form id="main_form" class="main_form" action="javascript:void(0);">
-            <select id="day" name="day" onchange="main();">
-                <option value="0">Monday</option>
-                <option value="1">Tuesday</option>
-                <option value="2">Wednesday</option>
-                <option value="3">Thursday</option>
-                <option value="4">Friday</option>
-            </select>
-            <input id="person_id" type="text" name="person_id" placeholder="Class ID" onkeydown="if (event.keyCode == 13) main()"/>
-            <input id="button" type="button" name="submit" value="Submit" onClick="main()"/>
-            <label id="submit_label" for="submit"></label>
-            <label for="teacher" class="righty">Teacher<input type="checkbox" onchange="main();" name="teacher" id="teacher" value="teacher"></label>
-        </form>
-        <div class="image_container">
-          <p id="first_visit"></p>
-          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="schedule" id="schedule_container" alt="">
-        </div>
-        <div class="page-divider"></div>
-        <div class="footer">
-          <ul>
-            <li>Various Links: </li>
-            <li><a href="https://schoolsoftelev.nacka.se/wa/auth?location=https://schoolsoftelev.nacka.se/nacka/proxyLogin.jsp&authmech=Integrerad_Windowsautentisering" target="_blank">SchoolSoft</a></li>
-            <li><a href="http://www.nacka.se/valfard-skola/nacka-gymnasium/skolinfo/matsedel/" target="_blank">Lunch</a></li>
-            <li class="righty"><p>This is a beta version, please <a href="https://github.com/TRSGuy/Improved-Novaschem/issues">report</a> any bugs found</p></li>
-          </ul>
-        </div>
-    </body>
-</html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<title>Improved NovaSchem</title>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</head>
+	<body>
+		<form id="main-form" class="main-form" action="javascript:void(0);">
+			<select id="day" name="day" onchange="main();">
+				<option value="0">Monday</option>
+				<option value="1">Tuesday</option>
+				<option value="2">Wednesday</option>
+				<option value="3">Thursday</option>
+				<option value="4">Friday</option>
+			</select>
+			<input id="person-id" type="text" name="person-id" placeholder="Class ID" onkeydown="if (event.keyCode == 13) main()"/>
+			<input id="button" type="button" name="submit" value="Submit" onclick="main()"/>
+			<label id="submit-label" for="submit"></label>
+			<input class="righty" id="week" name="week" type="number" min="1" max="52" onchange="main();"/>
+			<label class="righty" id="week-label" for="week">Week:</label>
+		</form>
+		<div class="image-container">
+			<p id="first-visit"></p>
+			<center>
+				<video id="loading-animation" width="256" loop height="256" autoplay="autoplay">
+					<source "https://zippy.gfycat.com/DearestVillainousJackrabbit.webm" type="video/webm" />
+				</video>
+			</center>
+			<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="schedule" id="schedule-container" alt="">
+		</div>
+		<div class="page-divider"></div>
+		<div class="footer">
+			<ul>
+				<li>Various Links: </li>
+				<li><a href="https://schoolsoftelev.nacka.se/wa/auth?location=https://schoolsoftelev.nacka.se/nacka/proxyLogin.jsp&authmech=Integrerad_Windowsautentisering" target="_blank">SchoolSoft</a></li>
+				<li><a href="http://www.nacka.se/valfard-skola/nacka-gymnasium/skolinfo/matsedel/" target="_blank">Lunch</a></li>
+				<li class="righty">
+					<p>This is a beta version, please <a href="https://github.com/TRSGuy/Improved-Novaschem/issues" target="_blank">report</a> any bugs found</p>
+				</li>
+			</ul>
+		</div>
+	</body>
+	</html>
