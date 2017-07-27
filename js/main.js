@@ -40,7 +40,8 @@ function grabCookie(cname) {
 function main(shouldToggle) {
 	if(shouldToggle) {toggleMenu();}
 	var uid = $("#uid").val();
-	if(uid > 3) {
+	if(uid.length < 3) {
+		toggleMenu();
 	} else {
 		document.cookie = "json={\"uid\": \"" + uid + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
 		$("#schedule").attr("src", genSchedLink({"uid": uid, "sid": "58700", "sc": $("#schedule")}));
@@ -53,3 +54,4 @@ window.onload = function() {
 		main(true);
 	}
 };
+window.onresize = function () { main(); };

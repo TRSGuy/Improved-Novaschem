@@ -1,7 +1,6 @@
 html {
 	margin: 0;
 	padding: 0;
-	padding-top: 2px;
 }
 body {
 	background: #36393e;
@@ -12,17 +11,17 @@ body {
 }
 .top-bar {
 	width: 95%;
-	margin-top: 10px;
+	height: 30px;
 	margin-right: 10px;
-	height: 40px;
 }
 .righty {
 	float: right;
 }
 #form-container {
 	box-shadow: inset 0 0 10px #000;
-	background: #363636;
+	background: #36393e;
 	position: absolute;
+	width: 300px;
 	top: 0;
 	left: 0;
 	float: left;
@@ -31,10 +30,14 @@ body {
 #schedule-container .glyph {
 	margin: 10px;
 }
+label {
+	margin-left: 10px;
+}
 .header {
 	font-size: 22pt;
 	float: left;
 	margin: 10px;
+	padding: 0;
 	margin-bottom: 0;
 	margin-top: 0;
 }
@@ -55,12 +58,15 @@ body {
 	border: none;
 	border-left: 1px #FFF solid;
 	border-right: 1px #FFF solid;
-	width: 60%;
+	width: 110px;
+	margin-left: 10px;
 	color: #FFF;
 	font-size: 12pt;
+	margin-bottom: 5px;
 }
 .input {
 	width: 60%;
+	margin-left: 10px;
 	margin-bottom: 10px;
 	color: #FFF;
 	border: none;
@@ -86,7 +92,7 @@ input, select {
 }
 #schedule {
 	width: 100%;
-	height: 100vh;
+	height: 95vh;
 }
 #schedule-container {
 	width: 100%;
