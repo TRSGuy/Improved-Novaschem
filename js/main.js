@@ -8,7 +8,7 @@ function initialize() {
 	$("#day").val(ta[1]);
 	$("#week").val(ta[0]);
 	ta  = getTime();
-};
+}
 function firstVisit() { // docs:firstVisit
 	var siteGuideMessage = [
 		"<p class=\"header\">Getting started</p>",
