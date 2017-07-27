@@ -25,6 +25,7 @@ function firstVisit() { // docs:firstVisit
 function genSchedLink(ao) { // docs:genSchedLink
 	ao["wi"] = Math.round(ao["sc"].width());
 	ao["he"] = Math.round(ao["sc"].height());
+	ta = getTime();
 	var link = [
 		"http://www.novasoftware.se/ImgGen/schedulegenerator.aspx", "?format=png",
 		"&schoolid=" + ao["sid"], "/sv-se", "&type=-1",
