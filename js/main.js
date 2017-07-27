@@ -49,13 +49,6 @@ var cookies = document.cookie.replace(/\s+/g, "").split(";");
 	}
 	return false;
 };
-function update() { // docs:update	
-	if($("#person-id").val().length < 3) { firstVisit(); }
-	else {
-		$("#first-visit").slideUp();
-		main();
-	}
-};
 function main() { // docs:main
 	var ao = {
 		"uid": $("#person-id").val(),
@@ -66,6 +59,13 @@ function main() { // docs:main
 	ao["sc"].on("load", function(){ao["lo"].hide(500);});
 	ao["sc"].attr("src", genSchedLink(ao));
 	document.cookie = "json={\"uid\": \"" + ao["uid"] + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
+};
+function update() { // docs:update	
+	if($("#person-id").val().length < 3) { firstVisit(); }
+	else {
+		$("#first-visit").slideUp();
+		main();
+	}
 };
 window.onload = function() { // docs:onload
 	initialize();
