@@ -1,3 +1,21 @@
+@keyframes redFlash {
+	0% {background: none;}
+	50% {background: #F00;}
+	100% {background: none;}
+}
+@keyframes greenFlash {
+	0% {background: none;}
+	50% {background: #0F0;}
+	100% {background: none;}
+}
+.highlightRed {
+	animation-name: redFlash;
+	animation-duration: 2s;
+}
+.highlightGreen {
+	animation-name: greenFlash;
+	animation-duration: 1.5s;
+}
 html {
 	margin: 0;
 	padding: 0;
@@ -56,9 +74,7 @@ label {
 }
 .button {
 	border: none;
-	border-left: 1px #FFF solid;
-	border-right: 1px #FFF solid;
-	border-bottom: 1px #FFF solid;
+	border: 1px #FFF solid;
 	width: 110px;
 	margin-left: 10px;
 	color: #FFF;

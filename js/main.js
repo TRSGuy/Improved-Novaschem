@@ -27,7 +27,19 @@ function genSchedLink(ao) { // docs:genSchedLink
 	].join("");
 	return link;
 };
-function toggleMenu() {$('#form-container').animate({width: 'toggle'}, 200);};
+function help(hostile) {
+	var help = $("#help");
+	if(hostile) {
+		help.removeClass("highlightGreen");
+		help.removeClass("highlightRed");
+		help.addClass("highlightGreen");
+	} else {
+		help.removeClass("highlightGreen");
+		help.removeClass("highlightRed");
+		help.addClass("highlightGreen");
+	}
+}
+function toggleMenu() {$("#help").removeClass("highlightGreen").removeClass("highlightRed");$('#form-container').animate({width: 'toggle'}, 200);};
 function grabCookie(cname) {
 	var cookies = document.cookie.replace(/\s+/g, "").split(";");
 	for(var i = 0; i < cookies.length; i++) {
@@ -41,6 +53,7 @@ function main(shouldToggle) {
 	if(shouldToggle) {toggleMenu();}
 	var uid = $("#uid").val();
 	if(uid.length < 3) {
+		help(true);
 		toggleMenu();
 	} else {
 		document.cookie = "json={\"uid\": \"" + uid + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
@@ -52,6 +65,8 @@ window.onload = function() {
 	if(grabCookie("json")) {
 		$("#uid").val(JSON.parse(grabCookie("json"))["uid"]);
 		main(true);
+	} else {
+		help(false);
 	}
 };
 window.onresize = function () { main(); };
