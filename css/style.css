@@ -58,6 +58,7 @@ label {
 	border: none;
 	border-left: 1px #FFF solid;
 	border-right: 1px #FFF solid;
+	border-bottom: 1px #FFF solid;
 	width: 110px;
 	margin-left: 10px;
 	color: #FFF;

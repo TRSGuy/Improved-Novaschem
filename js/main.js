@@ -27,7 +27,7 @@ function genSchedLink(ao) { // docs:genSchedLink
 	].join("");
 	return link;
 };
-function toggleMenu() { $('#form-container').animate({width: 'toggle'}); };
+function toggleMenu() {$('#form-container').animate({width: 'toggle'}, 200);};
 function grabCookie(cname) {
 	var cookies = document.cookie.replace(/\s+/g, "").split(";");
 	for(var i = 0; i < cookies.length; i++) {
