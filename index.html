@@ -8,19 +8,43 @@
 		<link rel="stylesheet" href="css/style.css">
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="js/main.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	</head>
 	<body>
 		<div id="form-container">
-			<input type="text" id="uid" name="person-id" placeholder="Class ID" />
-			<select id="day" name="day">
-				<option value="0">Monday</option>
-				<option value="1">Tuesday</option>
-				<option value="2">Wednesday</option>
-				<option value="3">Thursday</option>
-				<option value="4">Friday</option>
-			</select>
-			<input type="number" id="week" name="week" min="1" max="52" />
+			<div class="top-bar">
+				<div class="header">Menu</div>
+				<div class="glyph righty" onclick="toggleMenu();"><i class="fa fa-caret-left"></i></div>
+			</div>
+			<div class="page-divider"></div>
+			<center>
+				<form id="main-form" action="javascript:void(0);">
+					<input type="text" id="uid" name="person-id" placeholder="Class ID" /><br />
+					<select id="day" name="day">
+						<option value="0">Monday</option>
+						<option value="1">Tuesday</option>
+						<option value="2">Wednesday</option>
+						<option value="3">Thursday</option>
+						<option value="4">Friday</option>
+					</select><br />
+					<input type="number" placeholder="Week" id="week" name="week" min="1" max="52" /><br />
+					<input type="submit" value="Get Schedule!" id="submit" />
+				</form>
+			</center>
+				<div class="help-container">
+					<div class="page-divider"></div>
+					<div class="header">Help</div><br /><br />
+					<div class="help-text">How to use Improved Novaschem:<br /></div>
+					<ol>
+						<li>Enter your Class ID</li>
+						<li>Hit get schedule</li>
+						<li>The schedule will now load</li>
+					</ol>
+				</div>
 		</div>
-		<div id="schedule-container"></div>
+		<div id="schedule-container">
+			<div class="header"><p onclick="toggleMenu();">Menu <i class="fa fa-caret-right"></i></p></div>
+			<img id="schedule" src="http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=58700/sv-se&type=-1&id=ED16&period=&week=30&printer=0&mode=0&colors=32&head=1&clock=1&foot=1&day=4&width=1903&height=971&maxwidth=1903&maxheight=971" />
+		</div>
 	</body>
 	</html>
