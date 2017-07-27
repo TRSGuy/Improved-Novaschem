@@ -26,8 +26,7 @@ body {
 	top: 0;
 	left: 0;
 	float: left;
-	height: 100vh;
-	width: 400px;
+	height: 100%;
 }
 #schedule-container .glyph {
 	margin: 10px;
@@ -52,7 +51,15 @@ body {
 	width: 100%;
 	background: #777;
 }
-#uid, #day, #week, #submit {
+.button {
+	border: none;
+	border-left: 1px #FFF solid;
+	border-right: 1px #FFF solid;
+	width: 60%;
+	color: #FFF;
+	font-size: 12pt;
+}
+.input {
 	width: 60%;
 	margin-bottom: 10px;
 	color: #FFF;
@@ -86,8 +93,8 @@ input, select {
 	display: block;
 	height: 100vh;
 	float: left;
+	max-height: 100vh;
 }
 a {
-	float: left;
-	position: relative;
+	color: #FFF
 }
