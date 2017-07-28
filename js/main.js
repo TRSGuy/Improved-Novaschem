@@ -71,6 +71,6 @@ window.onload = function() {
 		main(true);
 	} else {
 		help(false);
-window.onresize = function () { main(); }
 	}
 }
+window.onresize = function () { main(); }
