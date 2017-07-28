@@ -70,7 +70,7 @@ label {
 	margin-right: 0;
 	height: 1px;
 	width: 100%;
-	background: #777;
+	background: linear-gradient(90deg, transparent, #FFF, transparent);
 }
 .button {
 	border: none;
@@ -80,6 +80,7 @@ label {
 	color: #FFF;
 	font-size: 12pt;
 	margin-bottom: 5px;
+	margin-top: 5px;
 }
 .input {
 	width: 60%;

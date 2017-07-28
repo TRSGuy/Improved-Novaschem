@@ -1,5 +1,5 @@
 function getTime() { // docs:getTime
-	Date.prototype.getWeek = function () { var oneJan = new Date(this.getFullYear(), 0, 1); return Math.ceil((((this - oneJan) / 86400000) + oneJan.getDay() + 1) / 7); };
+	Date.prototype.getWeek = function () { var oneJan = new Date(this.getFullYear(), 0, 1); return Math.ceil((((this - oneJan) / 86400000) + oneJan.getDay() + 1) / 7); }
 	return [new Date().getWeek(), new Date().getDay() - 1, [1, 2, 4, 8, 16][$("#day").val()]];
 }
 var ta;
@@ -26,7 +26,7 @@ function genSchedLink(ao) { // docs:genSchedLink
 		"&maxheight=" + ao["he"],
 	].join("");
 	return link;
-};
+}
 function help(hostile) {
 	var help = $("#help");
 	if(hostile) {
@@ -39,7 +39,7 @@ function help(hostile) {
 		help.addClass("highlightGreen");
 	}
 }
-function toggleMenu() {$("#help").removeClass("highlightGreen").removeClass("highlightRed");$('#form-container').animate({width: 'toggle'}, 200);};
+function toggleMenu() {$("#help").removeClass("highlightGreen").removeClass("highlightRed");$("#form-container").animate({width: "toggle"}, 200);}
 function grabCookie(cname) {
 	var cookies = document.cookie.replace(/\s+/g, "").split(";");
 	for(var i = 0; i < cookies.length; i++) {
@@ -48,7 +48,7 @@ function grabCookie(cname) {
 		}
 	}
 	return false;
-};
+}
 function main(shouldToggle) {
 	if(shouldToggle) {toggleMenu();}
 	var uid = $("#uid").val();
@@ -59,7 +59,7 @@ function main(shouldToggle) {
 		document.cookie = "json={\"uid\": \"" + uid + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
 		$("#schedule").attr("src", genSchedLink({"uid": uid, "sid": "58700", "sc": $("#schedule")}));
 	}
-};
+}
 window.onload = function() {
 	initialize();
 	if(grabCookie("json")) {
@@ -68,5 +68,5 @@ window.onload = function() {
 	} else {
 		help(false);
 	}
-};
-window.onresize = function () { main(); };
+}
+window.onresize = function () { main(); }
