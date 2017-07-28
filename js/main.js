@@ -1,5 +1,5 @@
 function getTime() { // docs:getTime
-	Date.prototype.getWeek = function () { var oneJan = new Date(this.getFullYear(), 0, 1); return Math.ceil((((this - oneJan) / 86400000) + oneJan.getDay() + 1) / 7); }
+	Date.prototype.getWeek = function () { var oneJan = new Date(this.getFullYear(), 0, 1); return Math.ceil((((this - oneJan) / 86400000) + oneJan.getDay() + 1) / 7);}
 	return [new Date().getWeek(), new Date().getDay() - 1, [1, 2, 4, 8, 16][$("#day").val()]];
 }
 var ta;
@@ -29,17 +29,18 @@ function genSchedLink(ao) { // docs:genSchedLink
 }
 function help(hostile) {
 	var help = $("#help");
+	console.log("Help was called");
 	if(hostile) {
-		help.removeClass("highlightGreen");
 		help.removeClass("highlightRed");
-		help.addClass("highlightGreen");
+		help.removeClass("highlightGreen");
+		help.addClass("highlightRed");
 	} else {
-		help.removeClass("highlightGreen");
 		help.removeClass("highlightRed");
+		help.removeClass("highlightGreen");
 		help.addClass("highlightGreen");
 	}
 }
-function toggleMenu() {$("#help").removeClass("highlightGreen").removeClass("highlightRed");$("#form-container").animate({width: "toggle"}, 200);}
+function toggleMenu() {$("#form-container").animate({width: "toggle"}, 200);}
 function grabCookie(cname) {
 	var cookies = document.cookie.replace(/\s+/g, "").split(";");
 	for(var i = 0; i < cookies.length; i++) {
@@ -54,8 +55,11 @@ function main(shouldToggle) {
 	var uid = $("#uid").val();
 	if(uid.length < 3) {
 		help(true);
-		toggleMenu();
+		if(shouldToggle) {
+			toggleMenu();
+		}
 	} else {
+		$("#help").removeClass("highlightRed").removeClass("highlightGreen");
 		document.cookie = "json={\"uid\": \"" + uid + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
 		$("#schedule").attr("src", genSchedLink({"uid": uid, "sid": "58700", "sc": $("#schedule")}));
 	}
@@ -67,6 +71,6 @@ window.onload = function() {
 		main(true);
 	} else {
 		help(false);
+window.onresize = function () { main(); }
 	}
 }
-window.onresize = function () { main(); }

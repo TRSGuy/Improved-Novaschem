@@ -5,16 +5,18 @@
 }
 @keyframes greenFlash {
 	0% {background: none;}
-	50% {background: #0F0;}
+	50% {background: #080;}
 	100% {background: none;}
 }
 .highlightRed {
 	animation-name: redFlash;
 	animation-duration: 2s;
+	animation-iteration-count: infinite;
 }
 .highlightGreen {
 	animation-name: greenFlash;
 	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
 }
 html {
 	margin: 0;
