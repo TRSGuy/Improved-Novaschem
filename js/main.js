@@ -1,9 +1,9 @@
 function getTime() { // docs:getTime
 	Date.prototype.getWeek = function () { var oneJan = new Date(this.getFullYear(), 0, 1); return Math.ceil((((this - oneJan) / 86400000) + oneJan.getDay() + 1) / 7);}
-	return [new Date().getWeek(), new Date().getDay() - 1, [1, 2, 4, 8, 16][$("#day").val()]];
+    return [new Date().getWeek(), new Date().getDay() - 1, [1, 2, 4, 8, 16, 1, 1][$("#day").val()]];
 }
 var ta;
-function initialize() {
+function initialize() { // docs:initialize
 	ta = getTime();
 	$("#week").val(ta[0]);
 	$("#day").val(ta[1]);
