@@ -25,6 +25,7 @@ function genSchedLink(ao) { // docs:genSchedLink
 		"&maxwidth=" + ao["wi"],
 		"&maxheight=" + ao["he"],
 	].join("");
+    console.log(link);
 	return link;
 }
 function help(hostile) {
@@ -40,8 +41,8 @@ function help(hostile) {
 		help.addClass("highlightGreen");
 	}
 }
-function toggleMenu() {$("#form-container").animate({width: "toggle"}, 200);}
-function grabCookie(cname) {
+function toggleMenu() {$("#form-container").animate({width: "toggle"}, 200);} //docs:toggleMenu
+function grabCookie(cname) { //docs:grabCookie
 	var cookies = document.cookie.replace(/\s+/g, "").split(";");
 	for(var i = 0; i < cookies.length; i++) {
 		if(cname === cookies[i].split("=")[0]) {
@@ -50,9 +51,11 @@ function grabCookie(cname) {
 	}
 	return false;
 }
-function main(shouldToggle) {
+function main(shouldToggle) { //docs:main
 	if(shouldToggle) {toggleMenu();}
 	var uid = $("#uid").val();
+	var sid = $("#sid").val();
+    console.log(sid);
 	if(uid.length < 3) {
 		help(true);
 		if(shouldToggle) {
@@ -60,17 +63,20 @@ function main(shouldToggle) {
 		}
 	} else {
 		$("#help").removeClass("highlightRed").removeClass("highlightGreen");
-		document.cookie = "json={\"uid\": \"" + uid + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
-		$("#schedule").attr("src", genSchedLink({"uid": uid, "sid": "58700", "sc": $("#schedule")}));
+		document.cookie = "json2={\"uid\": \"" + uid + "\",\"sid\": \"" + sid + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
+		$("#schedule").attr("src", genSchedLink({"uid": uid, "sid": sid, "sc": $("#schedule")}));
+	    console.log(document.cookie);
 	}
 }
-window.onload = function() {
-	initialize();
-	if(grabCookie("json")) {
-		$("#uid").val(JSON.parse(grabCookie("json"))["uid"]);
-		main(true);
-	} else {
-		help(false);
-	}
+window.onload = function() { //docs:onload
+    initialize();
+    if(grabCookie("json2")) {
+	var cjson = JSON.parse(grabCookie("json2"));
+	$("#uid").val(cjson["uid"]);
+	$("#sid").val(cjson["sid"]);
+	main(true);
+    } else {
+	help(false);
+    }
 }
 window.onresize = function () { main(); }
