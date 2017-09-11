@@ -25,12 +25,10 @@ function genSchedLink(ao) { // docs:genSchedLink
 		"&maxwidth=" + ao["wi"],
 		"&maxheight=" + ao["he"],
 	].join("");
-    console.log(link);
 	return link;
 }
 function help(hostile) {
 	var help = $("#help");
-	console.log("Help was called");
 	if(hostile) {
 		help.removeClass("highlightRed");
 		help.removeClass("highlightGreen");
@@ -55,7 +53,6 @@ function main(shouldToggle) { //docs:main
 	if(shouldToggle) {toggleMenu();}
 	var uid = $("#uid").val();
 	var sid = $("#sid").val();
-    console.log(sid);
 	if(uid.length < 3) {
 		help(true);
 		if(shouldToggle) {
@@ -65,7 +62,6 @@ function main(shouldToggle) { //docs:main
 		$("#help").removeClass("highlightRed").removeClass("highlightGreen");
 		document.cookie = "json2={\"uid\": \"" + uid + "\",\"sid\": \"" + sid + "\"};expires=Thu, 18 Dec 2020 12:00:00 UTC";
 		$("#schedule").attr("src", genSchedLink({"uid": uid, "sid": sid, "sc": $("#schedule")}));
-	    console.log(document.cookie);
 	}
 }
 window.onload = function() { //docs:onload
