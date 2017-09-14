@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
-<title>Improved NovaSchem</title>
-<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="js/main.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-<div id="form-container">
-<div class="top-bar">
-<div class="glyph righty" onclick="toggleMenu();"><i class="fa fa-caret-left"></i></div>
-</div>
-<form id="main-form" action="javascript:main(true);">
-<label for="school-id">School: </label><select class="input" id="sid" onchange="main(false);" name="school-id">
-<option value="58700">Nacka Gymnasium</option>
-<option value="94520">TBS</option>
-</select>
-<label for="person-id">Class ID: </label><input type="text" class="input" id="uid" onchange="main(false);" onkeydown="if (event.keyCode == 12) main(true)" name="person-id" placeholder="Class ID" /><br />
-<label for="day">Day: </label><select class="input" id="day" onchange="main(false);" name="day">
-<option value="0">Monday</option>
-<option value="1">Tuesday</option>
-<option value="2">Wednesday</option>
-<option value="3">Thursday</option>
-<option value="4">Friday</option>
-</select><br />
-<label for="week">Week: </label><input type="number" placeholder="Week" class="input" id="week" onchange="main(false)" name="week" min="1" max="52" /><br />
-<input type="submit" class="button" value="Get Schedule!" id="submit" class="input" />
-<input class="button" id="reset" type="button" value="Reset Values" onclick="window.onload();" />
-</form>
-<div class="help-container">
-<div class="page-divider"></div>
-<div class="header">Help</div><br /><br />
-<div class="help-text">How to use Improved Novaschem:<br /></div>
-<ol id="help">
-<li>Enter your Class ID</li>
-<li>Hit get schedule</li>
-<li>The schedule will now load</li>
-</ol>
-<div class="help-text">If you notice any bugs or have any suggestions, please visit <a href="https://github.com/TRSGuy/Improved-Novaschem/issues">our GitHub</a></div>
-</div>
-</div>
-<div id="schedule-container">
-<div class="header"><p onclick="toggleMenu();"><i class="fa fa-caret-right"></i></p></div>
-<img id="schedule" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
-</div>
-</body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Improved NovaSchem</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <div id="form-container">
+      <div class="top-bar">
+	<div class="glyph righty" onclick="toggleMenu();"><i class="fa fa-caret-left"></i></div>
+      </div>
+      <form id="main-form" action="javascript:main(true);">
+	<label for="school-id">School: </label><select class="input" id="sid" onchange="main(false);" name="school-id">
+	  <option value="58700">Nacka Gymnasium</option>
+	  <option value="94520">TBS</option>
+	</select>
+	<label for="person-id">Class ID: </label><input type="text" class="input" id="uid" onchange="main(false);" onkeydown="if (event.keyCode == 12) main(true)" name="person-id" placeholder="Class ID" /><br />
+	<label for="day">Day: </label><select class="input" id="day" onchange="main(false);" name="day">
+	  <option value="0">Monday</option>
+	  <option value="1">Tuesday</option>
+	  <option value="2">Wednesday</option>
+	  <option value="3">Thursday</option>
+	  <option value="4">Friday</option>
+	</select><br />
+	<label for="week">Week: </label><input type="number" placeholder="Week" class="input" id="week" onchange="main(false)" name="week" min="1" max="52" /><br />
+	<input type="submit" class="button" value="Get Schedule!" id="submit" class="input" />
+	<input class="button" id="reset" type="button" value="Reset Values" onclick="window.onload();" />
+      </form>
+      <div class="help-container">
+	<div class="page-divider"></div>
+	<div class="header">Help</div><br /><br />
+	<div class="help-text">How to use Improved Novaschem:<br /></div>
+	<ol id="help">
+	  <li>Enter your Class ID</li>
+	  <li>Hit get schedule</li>
+	  <li>The schedule will now load</li>
+	</ol>
+	<div class="help-text">If you notice any bugs or have any suggestions, please visit <a href="https://github.com/TRSGuy/Improved-Novaschem/issues">our GitHub</a></div>
+      </div>
+    </div>
+    <div id="schedule-container">
+      <div class="header"><p onclick="toggleMenu();"><i class="fa fa-caret-right"></i></p></div>
+      <img id="schedule" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+    </div>
+  </body>
 </html>

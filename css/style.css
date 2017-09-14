@@ -76,7 +76,6 @@ label {
 }
 .button {
 	border: none;
-	border-radius: 5px;
 	border-bottom: 1px #FFF solid;
 	margin-left: 10px;
 	color: #FFF;
