@@ -1,8 +1,11 @@
+var ta;
 function getTime() { // docs:getTime
-    Date.prototype.getWeek = function () { var oneJan = new Date(this.getFullYear(), 0, 1); return Math.ceil((((this - oneJan) / 86400000) + oneJan.getDay() + 1) / 7);}
+    Date.prototype.getWeek = function () {
+        var oneJan = new Date(this.getFullYear(), 0, 1);
+        return Math.ceil((((this - oneJan) / 86400000) + oneJan.getDay() + 1) / 7);
+    }
     return [new Date().getWeek(), new Date().getDay() - 1, [1, 2, 4, 8, 16, 1, 1][$("#day").val()]];
 }
-var ta;
 function initialize() { // docs:initialize
     ta = getTime();
     $("#week").val(ta[0]);
@@ -30,13 +33,9 @@ function genSchedLink(ao) { // docs:genSchedLink
 function help(hostile) {
     var help = $("#help");
     if(hostile) {
-	help.removeClass("highlightRed");
-	help.removeClass("highlightGreen");
-	help.addClass("highlightRed");
+	help.removeClass("highlightRed").removeClass("highlightGreen").addClass("highlightRed");
     } else {
-	help.removeClass("highlightRed");
-	help.removeClass("highlightGreen");
-	help.addClass("highlightGreen");
+	help.removeClass("highlightRed").removeClass("highlightGreen").addClass("highlightGreen");
     }
 }
 function toggleMenu() {$("#form-container").animate({width: "toggle"}, 200);} //docs:toggleMenu
@@ -67,12 +66,12 @@ function main(shouldToggle) { //docs:main
 window.onload = function() { //docs:onload
     initialize();
     if(grabCookie("json2")) {
-	var cjson = JSON.parse(grabCookie("json2"));
-	$("#uid").val(cjson["uid"]);
-	$("#sid").val(cjson["sid"]);
-	main(true);
+    	var cjson = JSON.parse(grabCookie("json2"));
+    	$("#uid").val(cjson["uid"]);
+    	$("#sid").val(cjson["sid"]);
+    	main(true);
     } else {
-	help(false);
+	    help(false);
     }
 }
 window.onresize = function () { main(); }
