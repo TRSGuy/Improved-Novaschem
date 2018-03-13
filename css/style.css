@@ -1,97 +1,130 @@
+@keyframes redFlash {
+	0% {background: none;}
+	50% {background: #F00;}
+	100% {background: none;}
+}
+@keyframes greenFlash {
+	0% {background: none;}
+	50% {background: #080;}
+	100% {background: none;}
+}
+.highlightRed {
+	animation-name: redFlash;
+	animation-duration: 1.5s;
+}
+.highlightGreen {
+	animation-name: greenFlash;
+	animation-duration: 1.5s;
+}
 html {
 	margin: 0;
 	padding: 0;
-	padding-top: 2px;
+}
+option {
+    background: #36393e;
 }
 body {
-	margin: inherit;
-	padding: inherit;
 	background: #36393e;
+	margin: 0;
+	padding: 0;
 	color: #FFF;
 	font-family: "Roboto", sans-serif;
 }
-p {
-	font-size: 12pt;
-	padding: 0;
-	margin: 0;
-	margin-left: 5px;
-}
-a {
-	font-size: 12pt;
-}
-.header {
-	font-size: 16pt;
-	width: 100%;
-	height: 16pt;
-	text-align: center;
-	margin: 0;
-	padding: 0;
-	margin-top: 10px;
-}
-.schedule {
-	width: 100%;
-	height: 100vh;
-	margin-top: 4px;
-	border: none;
-}
-input[type="text"] {
-	width: 4em;
-	color: #FFF;
-	background: #36393e;
-	border: none;
-	border-bottom: 1px solid #FFF;
-}
-input[type="button"] {
-	color: #FFF;
-	background: #36393e;
-	border: none;
-	border-bottom: 1px solid #FFF;
-}
-input[type="number"] {
-	width: 40px;
-	color: #FFF;
-	background: #36393e;
-	border: none;
-	border-bottom: 1px solid #FFF;
-}
-input:focus {
-	outline: none;
-	border-top: 1px solid #FFF;
-}
-select {
-	background: #36393e;
-	color: #FFF;
-	border: none;
-	border-bottom: 1px solid #FFF;
-}
-select:focus {
-	border-top: 1px solid #FFF;
-}
-ul {
-	list-style: none;
-	padding:0;
-	margin: 0;
-}
-ul li{
-	display: block;
-	float: left;
-	padding:0;
-	padding-right: 15px;
+.top-bar {
+	width: 95%;
+	height: 30px;
+	margin-right: 10px;
 }
 .righty {
 	float: right;
 }
-a:visited {
-	color: #FFF;
+#form-container {
+	box-shadow: inset 0 0 10px #000;
+	background: #36393e;
+	position: absolute;
+	width: 300px;
+	top: 0;
+	left: 0;
+	float: left;
+	height: 100%;
 }
-a {
-	color: #FFF;
+#schedule-container .glyph {
+	margin: 10px;
+}
+label {
+	margin-left: 10px;
+}
+.header {
+	font-size: 22pt;
+	float: left;
+	margin: 10px;
+	padding: 0;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+.help-container {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
 }
 .page-divider {
-	background: linear-gradient(90deg, transparent, #FFF, transparent);
+	margin: 3px;
+	margin-left: 0;
+	margin-right: 0;
 	height: 1px;
 	width: 100%;
+	background: #FFF;
 }
-#week-label {
-	margin-right: 4px;
+.button {
+	border: none;
+	border-bottom: 1px #FFF solid;
+	margin-left: 10px;
+	color: #FFF;
+	font-size: 12pt;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+.input {
+	width: 60%;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	color: #FFF;
+	border: none;
+	border-bottom: 1px #FFF solid;
+	font-size: 12pt;
+}
+.input:focus, .button:focus {
+    outline: unset;
+    border-bottom: 3px #FFF solid;
+}
+#submit {
+	width: 130px;
+}
+p {
+	margin: 0;
+	padding: 0;
+}
+.help-text {
+	margin: 10px;
+}
+.glyph {
+	font-size: 22pt;
+}
+input, select {
+	color: #FFF;
+	background: rgba(0, 0, 0, 0);
+}
+#schedule {
+	width: 100%;
+	height: 95vh;
+}
+#schedule-container {
+	width: 100%;
+	display: block;
+	height: 100vh;
+	float: left;
+	max-height: 100vh;
+}
+a {
+	color: #FFF
 }
