@@ -10,17 +10,18 @@
 }
 .highlightRed {
 	animation-name: redFlash;
-	animation-duration: 2s;
-	animation-iteration-count: infinite;
+	animation-duration: 1.5s;
 }
 .highlightGreen {
 	animation-name: greenFlash;
 	animation-duration: 1.5s;
-	animation-iteration-count: infinite;
 }
 html {
 	margin: 0;
 	padding: 0;
+}
+option {
+    background: #36393e;
 }
 body {
 	background: #36393e;
@@ -72,7 +73,7 @@ label {
 	margin-right: 0;
 	height: 1px;
 	width: 100%;
-	background: linear-gradient(90deg, transparent, #FFF, transparent);
+	background: #FFF;
 }
 .button {
 	border: none;
@@ -91,6 +92,10 @@ label {
 	border: none;
 	border-bottom: 1px #FFF solid;
 	font-size: 12pt;
+}
+.input:focus, .button:focus {
+    outline: unset;
+    border-bottom: 3px #FFF solid;
 }
 #submit {
 	width: 130px;
