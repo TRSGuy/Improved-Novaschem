@@ -47,6 +47,7 @@ body {
 	left: 0;
 	float: left;
 	height: 100%;
+	position: fixed;
 }
 #schedule-container .glyph {
 	margin: 10px;
