@@ -62,7 +62,7 @@ label {
 .help-container {
 	position: absolute;
 	width: 100%;
-	bottom: 0;
+	bottom: 25px;
 }
 .page-divider {
 	margin: 3px;
