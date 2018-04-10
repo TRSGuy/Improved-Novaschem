@@ -58,10 +58,8 @@ label {
 .header {
 	font-size: 22pt;
 	float: left;
-	margin: 10px;
-	padding: 0;
-	margin-bottom: 0;
-	margin-top: 0;
+	margin: 0;
+	padding: 10px;
 	width: 100%;
 }
 .help-container {
