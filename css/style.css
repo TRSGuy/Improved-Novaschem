@@ -34,17 +34,12 @@ body {
 	font-family: "Roboto", sans-serif;
 	overflow: hidden;
 }
-.top-bar {
-	width: 95%;
-	height: 30px;
-	margin-right: 10px;
-}
 #form-container {
 	box-shadow: 0 0 5px 1px #000;
 	background: #36393e;
 	position: absolute;
 	width: 300px;
-	padding-top: 10px;
+	padding-top: 20px;
 	top: 0;
 	left: 0;
 	float: left;
