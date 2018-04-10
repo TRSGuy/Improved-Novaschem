@@ -129,3 +129,7 @@ input, select {
 a {
 	color: #FFF
 }
+.links {
+	float: right;
+	font-size: 12pt;
+}
