@@ -131,4 +131,6 @@ a {
 .links {
 	float: right;
 	font-size: 12pt;
+	height: 34px;
+	line-height: 34px;
 }
